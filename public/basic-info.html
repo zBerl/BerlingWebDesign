@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-50 py-20">
+<main class="container mx-auto px-4 md:px-8 lg:px-16">
+    <section class="max-w-xl mx-auto bg-white p-8 rounded shadow-lg">
+        <h1 class="text-3xl font-bold text-blue-600 mb-4">Tell Us a Bit About Yourself</h1>
+        <form id="basic-info-form" onsubmit="navigateToDetailsForm(event)">
+            <div class="mb-4">
+                <label for="first-name" class="block text-gray-600 mb-2">First Name</label>
+                <input type="text" id="first-name" name="first-name" class="w-full px-4 py-2 border border-gray-300 rounded" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-600 mb-2">Email Address</label>
+                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded" required>
+            </div>
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300">Next</button>
+        </form>
+    </section>
+</main>
+<script>
+    function navigateToDetailsForm(event) {
+        event.preventDefault();
+        const firstName = document.getElementById('first-name').value;
+        const email = document.getElementById('email').value;
+        window.location.href = '/details-form.html?first-name=' + encodeURIComponent(firstName) + '&email=' + encodeURIComponent(email);
+    }
+</script>
+</body>
+</html>
